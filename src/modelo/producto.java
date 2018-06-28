@@ -12,40 +12,40 @@ package modelo;
 public class producto {
 
     private int id;
-    private String nombre;
     private String codigo;
-    private String tipo;
-    private int cantidad;
     private int precio;
+    private String nombre;
+    private int cantidad;
+    private String tipo;
     private boolean disponibilidad;
 
     public producto() {
     }
 
-    public producto(int id, String nombre, String codigo, String tipo, int cantidad, int precio, boolean disponibilidad) {
+    public producto(int id, String codigo, int precio, String nombre, int cantidad, String tipo, boolean disponibilidad) {
         this.id = id;
-        this.nombre = nombre;
         this.codigo = codigo;
-        this.tipo = tipo;
-        this.cantidad = cantidad;
         this.precio = precio;
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.tipo = tipo;
         this.disponibilidad = disponibilidad;
     }
 
-    public producto(String nombre, String codigo, String tipo, int cantidad, int precio, boolean disponibilidad) {
-        this.nombre = nombre;
+    public producto(String codigo, int precio, String nombre, int cantidad, String tipo, boolean disponibilidad) {
         this.codigo = codigo;
-        this.tipo = tipo;
-        this.cantidad = cantidad;
         this.precio = precio;
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.tipo = tipo;
         this.disponibilidad = disponibilidad;
     }
 
-    public producto(String codigo, String tipo, int cantidad, int precio, boolean disponibilidad) {
-        this.codigo = codigo;
-        this.tipo = tipo;
-        this.cantidad = cantidad;
+    public producto(int precio, String nombre, int cantidad, String tipo, boolean disponibilidad) {
         this.precio = precio;
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.tipo = tipo;
         this.disponibilidad = disponibilidad;
     }
 
@@ -57,36 +57,12 @@ public class producto {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public String getCodigo() {
         return codigo;
     }
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
     }
 
     public int getPrecio() {
@@ -97,6 +73,30 @@ public class producto {
         this.precio = precio;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
     public boolean getDisponibilidad() {
         return disponibilidad;
     }
@@ -104,6 +104,6 @@ public class producto {
     public void setDisponibilidad(boolean disponibilidad) {
         this.disponibilidad = disponibilidad;
     }
-    
+
     
 }

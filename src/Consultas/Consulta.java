@@ -174,9 +174,9 @@ public class Consulta extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 productoDao pd = new productoDao();
-                producto p = new producto(nombre.getText(), codigo.getText(), 
-                        (String) tipo.getSelectedItem(), Integer.parseInt(cantidad.getText()),
-                        Integer.parseInt(precio.getText()), true);
+                producto p = new producto(codigo.getText(), Integer.parseInt(precio.getText()),
+                        nombre.getText(), Integer.parseInt(cantidad.getText()), 
+                        (String) tipo.getSelectedItem(), true);
 
                 if (no.isSelected()) {
                     p.setDisponibilidad(false);
@@ -197,9 +197,9 @@ public class Consulta extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 productoDao pd = new productoDao();
-                producto p = new producto(nombre.getText(), codigo.getText(), 
-                        (String) tipo.getSelectedItem(), Integer.parseInt(cantidad.getText()),
-                        Integer.parseInt(precio.getText()),true);
+                producto p = new producto(codigo.getText(), Integer.parseInt(precio.getText()),
+                        nombre.getText(), Integer.parseInt(cantidad.getText()), 
+                        (String) tipo.getSelectedItem(), true);
 
                 if (no.isSelected()) {
                     p.setDisponibilidad(false);

@@ -110,7 +110,7 @@ public class productoDao implements metodos<producto> {
             rs=ps.executeQuery();
             
             while(rs.next()){
-                f= new producto (rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getBoolean(7));
+                f= new producto (rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getBoolean(7));
             }
             rs.close();
         }catch (SQLException ex){
@@ -131,7 +131,7 @@ public class productoDao implements metodos<producto> {
             s= con.getCnx().prepareStatement(SQL_READALL);
             rs = s.executeQuery(SQL_READALL);
             while(rs.next()){
-                all.add(new producto(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getBoolean(7)));
+                all.add(new producto(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getBoolean(7)));
             }
             rs.close();
         }catch (SQLException ex){
