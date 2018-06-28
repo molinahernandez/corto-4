@@ -83,12 +83,12 @@ public class Consulta extends JFrame {
         lblCantidad = new JLabel("cantidad: ");
         lblTipo = new JLabel("tipo"); 
         lblDisponibilidad = new JLabel("en disponibilidad: ");
-
-        lblTipo.setBounds(10, 180, ANCHOC, ALTOC);
-        lblPrecio.setBounds(10, 60, ANCHOC, ALTOC);
+        
         lblCodigo.setBounds(10, 10, ANCHOC, ALTOC);
-        lblCantidad.setBounds(10, 140, ANCHOC, ALTOC);
+        lblPrecio.setBounds(10, 60, ANCHOC, ALTOC);
         lblNombre.setBounds(10, 100, ANCHOC, ALTOC);
+        lblCantidad.setBounds(10, 140, ANCHOC, ALTOC);
+        lblTipo.setBounds(10, 180, ANCHOC, ALTOC);
         lblDisponibilidad.setBounds(10, 240, ANCHOC, ALTOC);
         
         }
@@ -117,12 +117,12 @@ public class Consulta extends JFrame {
         disponibilidad = new ButtonGroup();
         disponibilidad.add(si);
         disponibilidad.add(no);
-
-        nombre.setBounds(140, 100, ANCHOC, ALTOC);
-        precio.setBounds(140,60,ANCHOC, ALTOC);
+        
         codigo.setBounds(140, 10, ANCHOC, ALTOC);
-        tipo.setBounds(140, 180, ANCHOC, ALTOC);
+        precio.setBounds(140,60,ANCHOC, ALTOC);
+        nombre.setBounds(140, 100, ANCHOC, ALTOC);
         cantidad.setBounds(140, 140, ANCHOC, ALTOC);
+        tipo.setBounds(140, 180, ANCHOC, ALTOC);
         si.setBounds(140, 240, 50, ALTOC);
         no.setBounds(210, 240, 50, ALTOC);
 
@@ -153,11 +153,12 @@ public class Consulta extends JFrame {
                 }
             }
         };
-        tm.addColumn("Nombre");
+        
         tm.addColumn("Codigo");
-        tm.addColumn("Tipo");
-        tm.addColumn("Cantidad");
         tm.addColumn("Precio");
+        tm.addColumn("Nombre");
+        tm.addColumn("Cantidad");
+        tm.addColumn("Tipo");
         tm.addColumn("Disponibilidad");
 
         productoDao fd = new productoDao();
