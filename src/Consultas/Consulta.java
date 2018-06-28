@@ -77,27 +77,28 @@ public class Consulta extends JFrame {
     }
 
     public final void agregarLabels() {
-        lblNombre = new JLabel("Nombre");
-        lblCodigo = new JLabel("Codigo");
-        lblTipo = new JLabel("tipo");
-        lblCantidad = new JLabel("cantidad");
+        lblCodigo = new JLabel("Codigo: ");
         lblPrecio = new JLabel("precio");
+        lblNombre = new JLabel("Nombre: ");
+        lblCantidad = new JLabel("cantidad: ");
+        lblTipo = new JLabel("tipo"); 
         lblDisponibilidad = new JLabel("en disponibilidad: ");
 
-        lblNombre.setBounds(10, 10, ANCHOC, ALTOC);
-        lblCodigo.setBounds(10, 60, ANCHOC, ALTOC);
-        lblTipo.setBounds(10, 100, ANCHOC, ALTOC);
+        lblTipo.setBounds(10, 150, ANCHOC, ALTOC);
+        lblPrecio.setBounds(10, 80, ANCHOC, ALTOC);
+        lblCodigo.setBounds(10, 10, ANCHOC, ALTOC);
         lblCantidad.setBounds(200, 10, ANCHOC, ALTOC);
-        lblPrecio.setBounds(280, 60, ANCHOC, ALTOC);
+        lblNombre.setBounds(10, 100, ANCHOC, ALTOC);
         lblDisponibilidad.setBounds(320, 100, ANCHOC, ALTOC);
         
         }
 
     public final void Formulario() {
-        nombre = new JTextField();
         codigo = new JTextField();
-        tipo = new JComboBox();
+        precio = new JTextField();
+        nombre = new JTextField();
         cantidad = new JTextField();
+        tipo = new JComboBox();
         si = new JRadioButton("si", true);
         no = new JRadioButton("no");
         resultados = new JTable();
@@ -117,16 +118,17 @@ public class Consulta extends JFrame {
         disponibilidad.add(si);
         disponibilidad.add(no);
 
-        codigo.setBounds(140, 10, ANCHOC, ALTOC);
-        tipo.setBounds(140, 60, ANCHOC, ALTOC);
-        si.setBounds(140, 140, 50, ALTOC);
-        no.setBounds(210, 140, 50, ALTOC);
+        nombre.setBounds(70, 100, ANCHOC, ALTOC);
+        codigo.setBounds(70, 10, ANCHOC, ALTOC);
+        tipo.setBounds(70, 150, ANCHOC, ALTOC);
+        si.setBounds(140, 180, 60, ALTOC);
+        no.setBounds(210, 180, 60, ALTOC);
 
         buscar.setBounds(300, 10, ANCHOC, ALTOC);
-        insertar.setBounds(10, 210, ANCHOC, ALTOC);
-        actualizar.setBounds(150, 210, ANCHOC, ALTOC);
-        eliminar.setBounds(300, 210, ANCHOC, ALTOC);
-        limpiar.setBounds(450, 210, ANCHOC, ALTOC);
+        insertar.setBounds(10, 220, ANCHOC, ALTOC);
+        actualizar.setBounds(150, 220, ANCHOC, ALTOC);
+        eliminar.setBounds(300, 220, ANCHOC, ALTOC);
+        limpiar.setBounds(450, 220, ANCHOC, ALTOC);
         resultados = new JTable();
         table.setBounds(10, 250, 500, 200);
         table.add(new JScrollPane(resultados));
@@ -169,7 +171,7 @@ public class Consulta extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 productoDao fd = new productoDao();
-                producto f = new producto(nombre.getText(), Integer.parseInt(codigo.getText()), 
+                producto f = new producto(nombre.getText(), codigo.getText(), 
                         (String) tipo.getSelectedItem(), Integer.parseInt(cantidad.getText()),
                         Integer.parseInt(precio.getText()), true);
 
@@ -192,7 +194,7 @@ public class Consulta extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 productoDao fd = new productoDao();
-                producto f = new producto(nombre.getText(), Integer.parseInt(codigo.getText()), 
+                producto f = new producto(nombre.getText(), codigo.getText(), 
                         (String) tipo.getSelectedItem(), Integer.parseInt(cantidad.getText()),
                         Integer.parseInt(precio.getText()),true);
 
@@ -236,7 +238,7 @@ public class Consulta extends JFrame {
                 } else {
                     nombre.setText(f.getNombre());
                     tipo.setSelectedItem(f.getTipo());
-                    codigo.setText(Integer.toString(f.getCodigo()));
+                    codigo.setText(f.getCodigo());
 
                     if (f.getDisponibilidad()) {
                         si.setSelected(true);

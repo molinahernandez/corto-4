@@ -13,7 +13,7 @@ public class producto {
 
     private int id;
     private String nombre;
-    private int codigo;
+    private String codigo;
     private String tipo;
     private int cantidad;
     private int precio;
@@ -22,7 +22,7 @@ public class producto {
     public producto() {
     }
 
-    public producto(int id, String nombre, int codigo, String tipo, int cantidad, int precio, boolean disponibilidad) {
+    public producto(int id, String nombre, String codigo, String tipo, int cantidad, int precio, boolean disponibilidad) {
         this.id = id;
         this.nombre = nombre;
         this.codigo = codigo;
@@ -32,7 +32,7 @@ public class producto {
         this.disponibilidad = disponibilidad;
     }
 
-    public producto(String nombre, int codigo, String tipo, int cantidad, int precio, boolean disponibilidad) {
+    public producto(String nombre, String codigo, String tipo, int cantidad, int precio, boolean disponibilidad) {
         this.nombre = nombre;
         this.codigo = codigo;
         this.tipo = tipo;
@@ -41,7 +41,7 @@ public class producto {
         this.disponibilidad = disponibilidad;
     }
 
-    public producto(int codigo, String tipo, int cantidad, int precio, boolean disponibilidad) {
+    public producto(String codigo, String tipo, int cantidad, int precio, boolean disponibilidad) {
         this.codigo = codigo;
         this.tipo = tipo;
         this.cantidad = cantidad;
@@ -65,11 +65,11 @@ public class producto {
         this.nombre = nombre;
     }
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
