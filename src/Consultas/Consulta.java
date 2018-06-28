@@ -84,12 +84,12 @@ public class Consulta extends JFrame {
         lblTipo = new JLabel("tipo"); 
         lblDisponibilidad = new JLabel("en disponibilidad: ");
 
-        lblTipo.setBounds(10, 150, ANCHOC, ALTOC);
-        lblPrecio.setBounds(10, 80, ANCHOC, ALTOC);
+        lblTipo.setBounds(10, 180, ANCHOC, ALTOC);
+        lblPrecio.setBounds(10, 60, ANCHOC, ALTOC);
         lblCodigo.setBounds(10, 10, ANCHOC, ALTOC);
-        lblCantidad.setBounds(200, 10, ANCHOC, ALTOC);
+        lblCantidad.setBounds(10, 140, ANCHOC, ALTOC);
         lblNombre.setBounds(10, 100, ANCHOC, ALTOC);
-        lblDisponibilidad.setBounds(320, 100, ANCHOC, ALTOC);
+        lblDisponibilidad.setBounds(10, 240, ANCHOC, ALTOC);
         
         }
 
@@ -118,19 +118,21 @@ public class Consulta extends JFrame {
         disponibilidad.add(si);
         disponibilidad.add(no);
 
-        nombre.setBounds(70, 100, ANCHOC, ALTOC);
-        codigo.setBounds(70, 10, ANCHOC, ALTOC);
-        tipo.setBounds(70, 150, ANCHOC, ALTOC);
-        si.setBounds(140, 180, 60, ALTOC);
-        no.setBounds(210, 180, 60, ALTOC);
+        nombre.setBounds(140, 100, ANCHOC, ALTOC);
+        precio.setBounds(140,60,ANCHOC, ALTOC);
+        codigo.setBounds(140, 10, ANCHOC, ALTOC);
+        tipo.setBounds(140, 180, ANCHOC, ALTOC);
+        cantidad.setBounds(140, 140, ANCHOC, ALTOC);
+        si.setBounds(140, 240, 50, ALTOC);
+        no.setBounds(210, 240, 50, ALTOC);
 
         buscar.setBounds(300, 10, ANCHOC, ALTOC);
-        insertar.setBounds(10, 220, ANCHOC, ALTOC);
-        actualizar.setBounds(150, 220, ANCHOC, ALTOC);
-        eliminar.setBounds(300, 220, ANCHOC, ALTOC);
-        limpiar.setBounds(450, 220, ANCHOC, ALTOC);
+        insertar.setBounds(10, 310, ANCHOC, ALTOC);
+        actualizar.setBounds(150, 310, ANCHOC, ALTOC);
+        eliminar.setBounds(300, 310, ANCHOC, ALTOC);
+        limpiar.setBounds(450, 310, ANCHOC, ALTOC);
         resultados = new JTable();
-        table.setBounds(10, 250, 500, 200);
+        table.setBounds(10,350, 500, 200);
         table.add(new JScrollPane(resultados));
 
     }
