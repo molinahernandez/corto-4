@@ -118,13 +118,13 @@ public class Consulta extends JFrame {
         disponibilidad.add(si);
         disponibilidad.add(no);
         
-        codigo.setBounds(140, 10, ANCHOC, ALTOC);
-        precio.setBounds(140,60,ANCHOC, ALTOC);
-        nombre.setBounds(140, 100, ANCHOC, ALTOC);
-        cantidad.setBounds(140, 140, ANCHOC, ALTOC);
-        tipo.setBounds(140, 180, ANCHOC, ALTOC);
-        si.setBounds(140, 240, 50, ALTOC);
-        no.setBounds(210, 240, 50, ALTOC);
+        codigo.setBounds(160, 10, ANCHOC, ALTOC);
+        precio.setBounds(160,60,ANCHOC, ALTOC);
+        nombre.setBounds(160, 100, ANCHOC, ALTOC);
+        cantidad.setBounds(160, 140, ANCHOC, ALTOC);
+        tipo.setBounds(160, 180, ANCHOC, ALTOC);
+        si.setBounds(160, 240, 50, ALTOC);
+        no.setBounds(220, 240, 50, ALTOC);
 
         buscar.setBounds(300, 10, ANCHOC, ALTOC);
         insertar.setBounds(10, 310, ANCHOC, ALTOC);
@@ -173,16 +173,16 @@ public class Consulta extends JFrame {
         insertar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                productoDao fd = new productoDao();
-                producto f = new producto(nombre.getText(), codigo.getText(), 
+                productoDao pd = new productoDao();
+                producto p = new producto(nombre.getText(), codigo.getText(), 
                         (String) tipo.getSelectedItem(), Integer.parseInt(cantidad.getText()),
                         Integer.parseInt(precio.getText()), true);
 
                 if (no.isSelected()) {
-                    f.setDisponibilidad(false);
+                    p.setDisponibilidad(false);
                 }
 
-                if (fd.create(f)) {
+                if (pd.create(p)) {
                     JOptionPane.showMessageDialog(null, "Producto registrado con exito");
                     limpiarCampos();
                     llenarTabla();
@@ -196,15 +196,15 @@ public class Consulta extends JFrame {
         actualizar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                productoDao fd = new productoDao();
-                producto f = new producto(nombre.getText(), codigo.getText(), 
+                productoDao pd = new productoDao();
+                producto p = new producto(nombre.getText(), codigo.getText(), 
                         (String) tipo.getSelectedItem(), Integer.parseInt(cantidad.getText()),
                         Integer.parseInt(precio.getText()),true);
 
                 if (no.isSelected()) {
-                    f.setDisponibilidad(false);
+                    p.setDisponibilidad(false);
                 }
-                if (fd.update(f)) {
+                if (pd.update(p)) {
                     JOptionPane.showMessageDialog(null, "Producto modificado con exito");
                     limpiarCampos();
                     llenarTabla();
@@ -218,8 +218,8 @@ public class Consulta extends JFrame {
         eliminar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                productoDao fd = new productoDao();
-                if (fd.delete(nombre.getText())) {
+                productoDao pd = new productoDao();
+                if (pd.delete(nombre.getText())) {
                     JOptionPane.showMessageDialog(null, "Producto eliminado con exito");
                     limpiarCampos();
                     llenarTabla();
@@ -233,17 +233,17 @@ public class Consulta extends JFrame {
         buscar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                productoDao fd = new productoDao();
-                producto f = fd.read(nombre.getText());
-                if (f == null) {
+                productoDao pd = new productoDao();
+                producto p = pd.read(nombre.getText());
+                if (p == null) {
                     JOptionPane.showMessageDialog(null, "El producto buscado no se ah encontrado");
 
                 } else {
-                    nombre.setText(f.getNombre());
-                    tipo.setSelectedItem(f.getTipo());
-                    codigo.setText(f.getCodigo());
+                    nombre.setText(p.getNombre());
+                    tipo.setSelectedItem(p.getTipo());
+                    codigo.setText(p.getCodigo());
 
-                    if (f.getDisponibilidad()) {
+                    if (p.getDisponibilidad()) {
                         si.setSelected(true);
                     } else {
                         no.setSelected(true);
