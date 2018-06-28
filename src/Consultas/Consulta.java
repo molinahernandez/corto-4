@@ -31,10 +31,10 @@ import modelo.producto;
 public class Consulta extends JFrame {
 
     public JLabel lblNombre, lblCodigo, lblTipo, lblCantidad, lblPrecio, lblDisponibilidad;
-    public JTextField nombre, codigo, cantidad, precio, disponibilidad;
+    public JTextField nombre, codigo, cantidad, precio;
     public JComboBox tipo;
 
-    ButtonGroup existencia = new ButtonGroup();
+    ButtonGroup disponibilidad = new ButtonGroup();
     public JRadioButton no;
     public JRadioButton si;
     public JTable resultados;
@@ -119,7 +119,6 @@ public class Consulta extends JFrame {
 
         codigo.setBounds(140, 10, ANCHOC, ALTOC);
         tipo.setBounds(140, 60, ANCHOC, ALTOC);
-        disponibilidad.setBounds(140, 100, ANCHOC, ALTOC);
         si.setBounds(140, 140, 50, ALTOC);
         no.setBounds(210, 140, 50, ALTOC);
 
@@ -170,7 +169,9 @@ public class Consulta extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 productoDao fd = new productoDao();
-                producto f = new producto(nombre.getText(), codigo.getText(), tipo.getSelectedItem(), cantidad.getText(),
+                producto f = new producto(nombre.getText(), Integer.parseInt(codigo.getText()), 
+                        (String) tipo.getSelectedItem(), Integer.parseInt(cantidad.getText()),
+                        Integer.parseInt(precio.getText()), true);
 
                 if (no.isSelected()) {
                     f.setDisponibilidad(false);
@@ -191,11 +192,12 @@ public class Consulta extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 productoDao fd = new productoDao();
-                producto f = new producto(codigo.getText(), marca.getSelectedItem().toString(),
-                        Integer.parseInt(stock.getText()), true);
+                producto f = new producto(nombre.getText(), Integer.parseInt(codigo.getText()), 
+                        (String) tipo.getSelectedItem(), Integer.parseInt(cantidad.getText()),
+                        Integer.parseInt(precio.getText()),true);
 
                 if (no.isSelected()) {
-                    f.setExistencia(false);
+                    f.setDisponibilidad(false);
                 }
                 if (fd.update(f)) {
                     JOptionPane.showMessageDialog(null, "Producto modificado con exito");
@@ -212,7 +214,7 @@ public class Consulta extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 productoDao fd = new productoDao();
-                if (fd.delete(codigo.getText())) {
+                if (fd.delete(nombre.getText())) {
                     JOptionPane.showMessageDialog(null, "Producto eliminado con exito");
                     limpiarCampos();
                     llenarTabla();
@@ -227,16 +229,16 @@ public class Consulta extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 productoDao fd = new productoDao();
-                producto f = fd.read(codigo.getText());
+                producto f = fd.read(nombre.getText());
                 if (f == null) {
                     JOptionPane.showMessageDialog(null, "El producto buscado no se ah encontrado");
 
                 } else {
-                    codigo.setText(f.getCodigo());
-                    marca.setSelectedItem(f.getMarca());
-                    stock.setText(Integer.toString(f.getStock()));
+                    nombre.setText(f.getNombre());
+                    tipo.setSelectedItem(f.getTipo());
+                    codigo.setText(Integer.toString(f.getCodigo()));
 
-                    if (f.getExistencia()) {
+                    if (f.getDisponibilidad()) {
                         si.setSelected(true);
                     } else {
                         no.setSelected(true);
@@ -254,9 +256,9 @@ public class Consulta extends JFrame {
     }
 
     public void limpiarCampos() {
+        nombre.setText("");
         codigo.setText("");
-        marca.setSelectedItem("FRAM");
-        stock.setText("");
+        tipo.setSelectedItem("");
     }
 
     public static void main(String[] args) {
